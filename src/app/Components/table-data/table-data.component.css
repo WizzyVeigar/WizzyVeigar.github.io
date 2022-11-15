@@ -15,3 +15,8 @@
   .demo-row-is-clicked {
     font-weight: bold;
   }
+
+.previewImage{
+  max-height: 5rem;
+  max-width: 5rem;
+}

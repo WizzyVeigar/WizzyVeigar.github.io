@@ -2,15 +2,17 @@
 <div mat-dialog-content>
   <ul>
     <li>
-      Name <input type="text" [innerText]="data.name">
+      Name <input type="text" [(ngModel)]="data.name">
     </li>
     <li>
-      Description <input type="text" [innerText]="data.description">
+      Descr <input type="text" [(ngModel)]="data.description">
     </li>
     <li>
       Size <span></span>{{data.size}}
     </li>
+    <li>
+      <img [src]="data.path" />
+    </li>
   </ul>
-
-  <button (click)="SaveChanges()">Save changes</button>
+  <!-- <button (click)="SaveChanges()">Save changes</button> -->
 </div>

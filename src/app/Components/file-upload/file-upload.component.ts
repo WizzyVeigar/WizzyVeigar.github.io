@@ -9,22 +9,24 @@ import { DatatableHandlerService } from 'src/app/Services/datatable-handler.serv
 })
 export class FileUploadComponent implements OnInit {
 
-  msg = "";
-
+  //DI of our service
   constructor(private dtService: DatatableHandlerService) { }
 
   ngOnInit(): void {
   }
-
+  
   ImageUploaded(event: any){
-    if(!event.target.files[0] || event.target.files[0].length == 0) {
-			this.msg = 'You must select an image';
-			return;
-		}
+    
     var file = event.target.files[0];
-    console.log(file.type);
-    console.log(event.target.value);
-    const rowEle:RowElement = {name: file.name, description: '',size: file.size, path: event.target.value}
-    this.dtService.AddToTable(rowEle);
+    const validImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
+    if (validImageTypes.includes(file)) {  
+      //Make the path into an image we can plop into our object, using filereader   
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);		
+      reader.onload = (_event) => {
+        const rowEle:RowElement = {name: file.name, description: '', size: file.size, path: reader.result}
+        this.dtService.AddToTable(rowEle);
+      }
+    }
   }
 }

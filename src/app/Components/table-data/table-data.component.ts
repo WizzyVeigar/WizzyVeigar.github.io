@@ -12,11 +12,13 @@ import { DatatableHandlerService } from 'src/app/Services/datatable-handler.serv
 })
 export class TableDataComponent implements OnInit {
 
+  //Dependency injection of our service and a reference to a matdialog, so we can open it
   constructor(public dialog: MatDialog, public dtService: DatatableHandlerService) { }
 
   ngOnInit(): void {
   }
 
+  //Mattable uses this for choosing what columns to display
   displayedColumns: string[] = ['path', 'name', 'description', 'size'];
   clickedRows = new Set<RowElement>();
   
@@ -25,6 +27,10 @@ export class TableDataComponent implements OnInit {
     this.clickedRows.add(row);
     this.dialog.open(DetailDialogComponent,{
       data: row
-    });
+    })
+    //This part would be used if SaveChanges() was used
+    /*.afterClosed().subscribe((data: RowElement) => {
+      row = data;
+    });*/
   }
 }
