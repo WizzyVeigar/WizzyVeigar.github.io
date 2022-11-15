@@ -14,4 +14,7 @@ export class DetailDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  SaveChanges(){
+    this.data.name
+  }
 }

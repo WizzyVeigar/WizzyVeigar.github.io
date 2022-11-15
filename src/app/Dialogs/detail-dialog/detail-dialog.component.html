@@ -2,16 +2,15 @@
 <div mat-dialog-content>
   <ul>
     <li>
-      <span></span> {{data.name}}
+      Name <input type="text" [innerText]="data.name">
     </li>
     <li>
-      <span></span>{{data.position}}
+      Description <input type="text" [innerText]="data.description">
     </li>
     <li>
-      <span></span>{{data.weight}}
+      Size <span></span>{{data.size}}
     </li>
-    <li>
-        <span></span> {{data.symbol}}
-      </li>
   </ul>
+
+  <button (click)="SaveChanges()">Save changes</button>
 </div>
