@@ -29,8 +29,8 @@ export class TableDataComponent implements OnInit {
       data: row
     })
     //This part would be used if SaveChanges() was used
-    /*.afterClosed().subscribe((data: RowElement) => {
-      row = data;
-    });*/
+    // .afterClosed().subscribe((data: RowElement) => {
+    //   row = data;
+    // });
   }
 }

@@ -16,15 +16,15 @@ export class FileUploadComponent implements OnInit {
   }
   
   ImageUploaded(event: any){
-    
     var file = event.target.files[0];
     const validImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
-    if (validImageTypes.includes(file)) {  
+    if (validImageTypes.includes(file.type)) {  
       //Make the path into an image we can plop into our object, using filereader   
       var reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);		
       reader.onload = (_event) => {
         const rowEle:RowElement = {name: file.name, description: '', size: file.size, path: reader.result}
+        console.log(rowEle)
         this.dtService.AddToTable(rowEle);
       }
     }

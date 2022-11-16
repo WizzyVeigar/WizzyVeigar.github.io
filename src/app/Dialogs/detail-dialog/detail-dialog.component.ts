@@ -11,10 +11,10 @@ import { RowElement } from 'src/app/row-element.Interfaces/rowElement';
 
 export class DetailDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: RowElement, 
+  constructor(@Inject(MAT_DIALOG_DATA) public data: RowElement
   ) { }
   //This would be in the constructor, see below as for why its commented
-  /*private dialogref: MatDialogRef<DetailDialogComponent>*/
+  // private dialogref: MatDialogRef<DetailDialogComponent>
   
   ngOnInit(): void {
   }
